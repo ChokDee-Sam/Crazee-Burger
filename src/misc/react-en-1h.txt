@@ -1,0 +1,88 @@
+// À placer dans CodeSandBox
+
+
+import { useState } from "react";
+
+export default function App() {
+  const [fruits, setFruits] = useState([
+    { id: 1, nom: "abricot" },
+    { id: 2, nom: "banane" },
+    { id: 3, nom: "cerise" },
+  ]);
+
+  const handleDelete = (ID) => {
+    const fruitsCopy = [...fruits];
+    const fruitsCopyFilter = fruitsCopy.filter((element) => element.id !== ID);
+    setFruits(fruitsCopyFilter);
+  };
+
+  const alertFruit = (fruitPrefere) => {
+    alert(fruitPrefere);
+  };
+
+  const addFruit = (newFruit) => {
+    setFruits([...fruits, newFruit]);
+  };
+
+  return (
+    <div>
+      <h1>LISTE DE FRUITS</h1>
+      <ul>
+        {fruits.map((fruit) => (
+          <Fruit
+            fruit={fruit}
+            // onClick={() => handleDelete(fruit.id)}
+            onClick={() => alertFruit(fruit.nom)}
+            key={fruit.id}
+          />
+        ))}
+      </ul>
+      <FormFruit addFruit={addFruit} />
+    </div>
+  );
+}
+
+// --------------------------------------------------
+
+function Fruit({ fruit, onClick }) {
+  return (
+    <li>
+      {fruit.nom} <button onClick={onClick}> X </button>
+    </li>
+  );
+}
+
+// --------------------------------------------------
+
+function FormFruit({ addFruit }) {
+  // le fruit
+  const [newFruit, setNewFruit] = useState("");
+
+  // Catch l'input qui nomme le fruit
+  const handleInput = (evenement) => {
+    setNewFruit(evenement.target.value);
+  };
+
+  // Valider le formulaire, avec return object
+  const addForm = (e) => {
+    e.preventDefault();
+    if (newFruit) {
+      const id = crypto.randomUUID();
+      const nom = newFruit;
+      const addNewFruit = { id, nom };
+      addFruit(addNewFruit);
+      setNewFruit("");
+    }
+  };
+
+  return (
+    <form action="submit" onSubmit={addForm}>
+      <input
+        placeholder="écrire ici"
+        value={newFruit}
+        onChange={handleInput}
+      ></input>
+      <button>Ajouter +</button>
+    </form>
+  );
+}
