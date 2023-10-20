@@ -7,8 +7,9 @@ function App() {
   const [prenom, setPrenom] = useState("Mister");
 
   // Comportement
+  const handleClick = () => alert("Have a good day " + prenom);
 
   // Render
-  return <></>;
+  return <div></div>;
 }
 export default App;
