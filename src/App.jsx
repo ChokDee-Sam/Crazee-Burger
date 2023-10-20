@@ -9,7 +9,12 @@ function App() {
   // Comportement
   const handleClick = () => alert("Have a good day " + prenom);
 
-  // Render
-  return <div></div>;
+  // Affichage (render)
+  return (
+    <div>
+      <h1>Hello {prenom} </h1>
+      <button onClick={handleClick}>Hey</button>
+    </div>
+  );
 }
 export default App;
