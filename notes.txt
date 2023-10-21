@@ -1,0 +1,95 @@
+------------------------
+Git : changer de branche
+------------------------
+
+git branch                  => voir le nom des branches
+git checkout nomDeBranche   => changer de branche
+
+
+-----------------
+Extensions VSCode
+-----------------
+
+es7+ react
+Gitmoji
+Git Graph
+
+
+-----------------------------
+Comment bien écrire un Commit
+-----------------------------
+1. Type d'action (emoji)
+2. Numéro du Ticket
+3. la page la plus concernée (sinon, laissez vide)
+4. Verbe d'action commençant par une majuscule (Description)
+
+exemple : 🔥F01: Delete App.test.js
+
+
+-----------------------------
+Avant de commencer ton Ticket
+-----------------------------
+Analyser en amont une reflexion de construction
+
+
+
+-----------------------
+Utiliser des raccourcis
+-----------------------
+command + P             Accès aux fichiers
+command + Shift + P     Accès aux options (palette de commandes)
+control + espace > Enter    Import le composant automatiquement
+
+Tip : Dans accès au fichier, un simple chevron > ouvre les options
+
+
+-------
+Snippet
+-------
+rfc => reactComponent
+nfn => namedFunction
+usest   => package
+
+
+----------------------------------
+Composant spécifique ou générique ?
+----------------------------------
+Spécifique = non réutilisable   => dossier pages
+Générique = réutilisable        => pages > sous dossier 
+
+
+
+-------------------
+Verbaliser le State
+-------------------
+  Je définie un useState,
+  que j'initialise avec une chaine de caractere,
+  que je récupère dans une const,
+  que je pourrais modifier uniquement avec son setter dédié.
+
+
+---------------
+Conseils utiles
+---------------
+- Précise "la position" de la branches
+    Fais gagner du temps à ton équipe quand tu t'exprimes
+
+    GitHub distinque bien une branche local 'F01' avec une branche 'origin/F01'
+        Main/origin         F01/origin
+        Main/local          F01/local
+
+
+- Relis ta PR avant de l'envoyer
+    Tu verras tes fichiers du point de vue de ceux qui liront ta PR.
+    Tu pourras ainsi mieux repérer d'éventuelles erreurs.
+        petite roue crantée > Split > Apply and reaload
+
+
+- Ne pas oublier le lien de la PR
+
+
+-----------------
+Point vocabulaire
+-----------------
+
+- Vérifier un ticker / Review une PR / Relire une PR
