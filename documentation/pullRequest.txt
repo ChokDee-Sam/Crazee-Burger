@@ -1,0 +1,57 @@
+----------------------------------------------------------------------------
+                          Pull Request
+----------------------------------------------------------------------------
+
+-----------
+Avant la PR
+-----------
+
+- Relis ta PR avant de l'envoyer
+  - Tu verras tes fichiers du point de vue de ceux qui liront ta PR.
+  - Tu pourras ainsi mieux repérer d'éventuelles erreurs.
+        petite roue crantée > Split > Apply and reaload
+
+
+---------------
+Après la PR
+---------------
+
+- Juste après la PR : 2 liens à envoyer via ton Ticket
+  - Le lien de la PR au Lead Dev
+  - Le lien de ton Vercel nouvellement généré
+
+
+----------------
+PR coté Lead Dev
+----------------
+
+- Coté Lead Dev, via le lien 
+  - Aller sur l'onglet 'Files changed'
+  - Petite roue crantée > Diff View > Split > 'Apply and reload'
+  - Vérifier et cocher les Viewed
+  - Review changes > laisser un commentaire > Submit review
+
+
+----------
+PR : Rejet
+----------
+
+- Dans le cas où ton lien de test contient une Erreur
+  - git commit --amend 
+    Après les modifications + générer lien Vercel + PR push
+    => L'historique n'est pas conserver : à éviter
+  - Faire un nouveau commit + git push
+    Privilégier l'ajout des commits pour conserver l'historique
+    
+
+---------------
+PR : Validation
+---------------
+- Dans le cas où ta PR est validé
+  - Merge Pull Request sur la page PR 🥳
+
+
+-----------------
+Point vocabulaire
+-----------------
+- Vérifier un ticker / Review une PR / Relire une PR
