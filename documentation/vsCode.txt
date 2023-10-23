@@ -1,0 +1,24 @@
+-----------------
+Extensions VSCode
+-----------------
+es7+ react
+Gitmoji
+Git Graph
+
+
+-----------------------
+Utiliser des raccourcis
+-----------------------
+command + P             Accès aux fichiers
+command + Shift + P     Accès aux options (palette de commandes)
+control + espace > Enter    Import le composant automatiquement
+
+Tip : Dans accès au fichier, un simple chevron > ouvre les options
+
+
+-------
+Snippet
+-------
+rfc => reactComponent
+nfn => namedFunction
+usest   => package
