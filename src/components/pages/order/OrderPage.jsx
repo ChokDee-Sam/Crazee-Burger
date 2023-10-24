@@ -1,9 +1,15 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 export default function OrderPage() {
+  // State
+  const { username } = useParams();
+
+  // Comportement
+
+  // Affichage
   return (
     <div>
-      <h1>Bonjour </h1>
+      <h1>Bonjour {username}</h1>
       <Link to="/">
         <button>Déconnexion</button>
       </Link>
