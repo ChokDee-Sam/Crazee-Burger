@@ -39,18 +39,19 @@ Comparer 2 branches
 -------------------
 
 git diff F01..origin/F01
-git diff main..origin/main
+git diff main..origin/main   
 
 git diff
 => Compare l'état de 2 éléments selon l'ordre indiqué
-=> Si je suis le 1er argument, que faire pour arriver au 2eme ?
-=> Code couleur vert = à ajouter
-=> Code couleur rouge = à supprimer
+=> Que dois faire le 1er élément pour être comme le 2eme ?
+    => Code couleur vert = à ajouter
+    => Code couleur rouge = à supprimer
 
 
 ---------------------
 Récupérer des données
 ---------------------
+
 
 git fetch 
 => Récupérer les changements présents en ligne
@@ -58,15 +59,9 @@ git fetch
 => Sans merger sans code en Local
 
 Raccourcis :
-?? git fetch + git merge 
+git fetch + git merge 
 = git pull  (attention)
 
-
------------------------------------------
-Commit de merge (Après une Validation PR)
------------------------------------------
-
-=> Un commit supplémentaire qui indique le merge de 2 branches
 
 
 ---------------

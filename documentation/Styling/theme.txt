@@ -1,0 +1,17 @@
+Pratique pour centraliser les informations entre les parties :
+    - Design
+    - Dev
+    - Commerciale
+
+Dans un fichier JS :
+    1. créer des objects avec la data
+      const colors = {
+        primary: "#ffc0cb",
+        secondary: "blue",
+        tertiary: "green" }
+
+    2. Exporter le tout
+        export const theme = { colors, fonts }
+
+    3. Récupérer la Data
+        border : 1px solid ${theme.colors.primary}

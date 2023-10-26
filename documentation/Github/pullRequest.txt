@@ -51,6 +51,13 @@ PR : Validation
   - Merge Pull Request sur la page PR 🥳
 
 
+-----------------------------------------
+Commit de merge (Après une Validation PR)
+-----------------------------------------
+
+=> Un commit supplémentaire qui indique le merge de 2 branches
+
+
 -----------------
 Point vocabulaire
 -----------------

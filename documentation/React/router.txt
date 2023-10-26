@@ -1,0 +1,120 @@
+--------------------------------------------------------------------
+                        React Router
+--------------------------------------------------------------------
+
+-------------
+mise en place
+-------------
+
+Dans notre fichier Main qui est envoyé dans le root, 
+placer notre App dans une balise BrowserRouter.
+
+  <React.StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </React.StrictMode>
+
+
+--------------------------
+Créez les routes (chemins)
+--------------------------
+
+Dans notre App, placer chaque Route dans une balise Routes.
+
+    <Routes>
+      <Route path="/" element={<Accueil />}></Route>
+    </Routes>
+
+
+----------------------------------------
+Donner les indications pour chaque route
+----------------------------------------
+
+Chaque Route a besoin de 2 attributs :
+    - son chemin        => le path    
+    - et son élément    => le Composant de destination
+
+    <Route path="/" element={<LoginPage />}></Route>
+
+
+-----------------------
+Le chemin peut différer
+-----------------------
+
+Voici 3 exemples de chemins :
+
+- Le chemin non spéficié
+      <Route path="/" element={<LoginPage />}></Route>
+
+- Le chemin spécifié, qui crée une adresse de page
+      <Route path="/order" element={<OrderPage />}></Route>
+
+- Le chemin qui permet de gérer les page non spécifiées (error)
+      <Route path="*" element={<ErrorPage />}></Route>
+
+
+----------------------------
+Créer le Link vers un chemin
+----------------------------
+
+C'est nécessaire, c'est une sorte de href
+
+1 - Importer dans la page créant le lien
+    import {Link.....}
+
+2 - Entourer l'élément qui créera le lien, avec un "to"
+    <Link to='/'>nom du lien</Link>
+    <Link to='/order'>Order</Link>
+
+Cas spécial (à définir...) 
+Outlet : pour 'sortir' les routes imbriquées
+
+
+----------------------------------------------------------
+useNavigate()   => Déclenche une redirection
+useParams()     => Récupere l'info dans les paramètres URL
+----------------------------------------------------------
+
+Ces 2 Hooks permettent de :
+    - Déclencher / "forcer" une redirection vers une autre page
+    - Puis de récupérer une information contenu dans l'URL
+
+
+4 étapes pour y accéder :
+
+    1 - Dans une Route, créer un chemin personnalisé avec un mot
+    <Route path="/order/:xxx" element={<Accueil />}></Route>
+
+    2 - Dans un fichier où on souhaite créer une redirection
+        créer une const recevant ce Hook (dans la partie State)
+    const navigate = useNavigate()
+
+    3 - Dans ce même fichier, lancer cette fonction
+        avec en paramètre ce chemin personnalisé,
+        en remplaçant le mot du path, par ce que l'on souhaite 
+        => ces infos sont rajoutées dynamiquement dans l'URL
+    navigate(`order/${variable}`);
+
+    4 - Dans le Composant de destination de ce chemin,
+        => récupérer ces infos rajoutées dynamiquement dans l'URL
+            => donc via le Hook navigate du fichier précédent
+            Pour cela, on destructure un autre Hook : useParams()
+        const { username } = useParams();
+
+Après ces 4 étapes, on peut donc utiliser cette info.
+
+
+---------
+En résumé
+---------
+
+useNavigate()   => Déclenche une redirection sans Link
+                   Tout en ayant la possibilité d'y mettre des infos
+
+useParams       =>  Permet d'accéder aux paramètres de l'URL
+                    Qui sont encapsulés dans un Objet
+
+Les paramètres de l'URL
+                => des infos qu'on rajoute dynamiquement dans l'URL
+
