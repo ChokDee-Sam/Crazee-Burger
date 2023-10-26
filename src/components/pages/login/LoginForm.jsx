@@ -1,7 +1,9 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import styled from "styled-components"
-// import { theme } from "../../../theme"
+import { BiChevronRight } from "react-icons/bi"
+import { FaUserAlt } from "react-icons/fa"
+import { theme } from "../../../theme"
 
 export default function LoginForm() {
   // 1. State
@@ -32,7 +34,9 @@ export default function LoginForm() {
       <div className="line" />
 
       <div className="bloc-connexion">
-        <h2>Connectez-vous</h2>
+        <h2>
+          Connectez-vous <FaUserAlt />
+        </h2>
         <input
           type="text"
           placeholder="Entrez votre prénom"
@@ -40,7 +44,9 @@ export default function LoginForm() {
           onChange={handleChange}
           required
         />
-        <button>Accéder à mon espace</button>
+        <button>
+          Accéder à mon espace <BiChevronRight />
+        </button>
       </div>
     </FormStyled>
   )
@@ -60,13 +66,14 @@ const FormStyled = styled.form`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    gap: 20px;
+    gap: ${theme.spacing.md};
 
-    color: #ffa01b;
+    color: ${theme.colors.primary};
+    /* color: #ffa01b; */
     font-family: Amatic SC;
     font-style: normal;
     font-size: 110px;
-    font-weight: 700;
+    font-weight: ${theme.weights.bold};
     text-align: center;
     line-height: 115px; /* 104.545% */
     letter-spacing: 1.5px;
@@ -86,14 +93,15 @@ const FormStyled = styled.form`
     color: #fff;
     font-family: Amatic SC;
     font-style: normal;
-    font-size: 48px;
-    font-weight: 700;
+    font-size: ${theme.fonts.P5};
+    font-weight: ${theme.weights.bold};
     text-align: center;
     line-height: 61px; /* 127.083% */
   }
 
   .line {
-    margin-top: 32px;
+    margin-top: ${theme.spacing.lg};
+    /* margin-top: 32px; */
 
     width: 400px;
     height: 3px;
@@ -114,29 +122,37 @@ const FormStyled = styled.form`
       color: #fff;
       text-align: center;
       font-family: Amatic SC;
-      font-size: 36px;
+      font-size: ${theme.fonts.P4};
       font-style: normal;
-      font-weight: 700;
+      font-weight: ${theme.weights.bold};
       line-height: 46px; /* 127.778% */
     }
 
     input {
       display: inline-flex;
       align-items: center;
-      gap: 12px;
+      gap: ${theme.spacing.sm};
+      /* gap: 12px; */
 
       padding: 18px 24px;
-      border-radius: 5px;
+      border-radius: ${theme.borderRadius.round};
       background: #fff;
 
       color: #d3d3d3;
       font-family: Arial;
-      font-size: 15px;
+      font-size: ${theme.fonts.P0};
       font-style: normal;
-      font-weight: 400;
+      font-weight: ${theme.weights.regular};
       line-height: 17px; /* 113.333% */
 
       border: none;
+    }
+
+    input::before {
+      content: "test";
+      background-color: red;
+      width: 200px;
+      height: 100px;
     }
     input:focus {
       outline: none;
@@ -151,28 +167,28 @@ const FormStyled = styled.form`
       /* height: 53px; */
       padding: 18px;
 
-      border-radius: 5px;
-      border: 1px solid #ff9f1b;
-      background: #ff9f1b;
+      border-radius: ${theme.borderRadius.round};
+      border: 1px solid ${theme.colors.primary_burger};
+      background: ${theme.colors.primary_burger};
 
       color: #fff;
       text-align: center;
       font-family: Arial;
-      font-size: 15px;
+      font-size: ${theme.fonts.P0};
       font-style: normal;
-      font-weight: 700;
+      font-weight: ${theme.weights.bold};
       line-height: 15px; /* 100% */
 
       transition: all 0.25s;
     }
     button:hover {
-      color: #ff9f1b;
+      color: ${theme.colors.primary_burger};
       background-color: #fff;
       cursor: pointer;
     }
     button:active {
       color: white;
-      background-color: #ff9f1b;
+      background-color: ${theme.colors.primary_burger};
       cursor: pointer;
     }
   }
