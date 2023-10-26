@@ -1,0 +1,38 @@
+-----------------------------------------------
+4 méthodes pour ajouter du style à un Composant
+-----------------------------------------------
+
+Classé par ordre Prioritaire :
+    1. inline style
+    2. Object style
+    3. Module CSS (avec className)
+    4. Global Style
+
+
+---------------------------------------------------
+Styled Component      => Styled Tag dans la réalité
+---------------------------------------------------
+
+C'est la 5ème façon de rajouter du Style.
+    => yarn add styled-components
+
+Évite le style Collision, et effet de bord
+    => Css, Sass
+
+Permet d'écrire du CSS dans un fichier JS/JSX 
+    => pas de camelCase
+
+Conserve le Nesting Styling (style imbriqué)
+    => évite de définir une classe pour chaque élément du JSX
+
+Bonne pratique
+    => placer le Styled Component à la fin
+
+Conserver le nom du styled component dans l'Html du site
+    => import styled from "styled-components/macro"
+
+
+
+---------------------------------------------------
+
+---------------------------------------------------
