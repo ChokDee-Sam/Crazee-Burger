@@ -1,17 +1,17 @@
 /* eslint-disable react/prop-types */
 import styled from "styled-components"
-import { theme } from "../../../theme"
+import { theme } from "../../theme"
 
-export default function Input({ value, onChange, Icon, ...extraProps }) {
+export default function TextInput({ value, onChange, Icon, ...extraProps }) {
   return (
-    <InputStyled>
+    <TextInputStyled>
       {Icon && Icon}
       <input value={value} onChange={onChange} type="text" {...extraProps} />
-    </InputStyled>
+    </TextInputStyled>
   )
 }
 
-const InputStyled = styled.div`
+const TextInputStyled = styled.div`
   background: white;
   border-radius: 5px;
   display: flex;
