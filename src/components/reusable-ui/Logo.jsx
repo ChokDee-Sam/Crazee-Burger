@@ -5,10 +5,7 @@ export default function Logo() {
   return (
     <LogoStyled className="big">
       <h1>Crazy</h1>
-      <img
-        src="src/assets/logo-crazy-burger.png"
-        alt="logo crazee burger"
-      ></img>
+      <img src="images/logo-crazy-burger.png" alt="logo crazee burger"></img>
       <h1> Burger</h1>
     </LogoStyled>
   )
