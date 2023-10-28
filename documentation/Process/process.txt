@@ -1,0 +1,236 @@
+-----------------------------
+Layout et habillage graphique
+-----------------------------
+
+- Definir à l'avance son commit, sans le valider
+=> permet de rester cibler
+
+Toujours réinitialiser les styles d'index.css
+=> margin, padding, box-sizing
+
+Penser Gros-Blocs
+=> Puis les agencer en CSS, avant même de penser à l'habillage graphique
+
+Penser à colorer le Layout des "gros blocs"
+=> permet d'avoir une vision claire et définie
+
+Une fois que tout est bien agencé : on peut penser habillage graphique
+=> penser à Commit
+=> commencer du Composant plus générique (réutilisable) au plus spécifique (non-réutilisable)
+
+
+----------------
+Partie Composant
+----------------
+
+Avant de créer un nouveau composant : questionnement
+=> Est-ce un Composant spécifique ou réutilisable ?
+=> Puis, le classer en fonction de la réponse
+
+
+--------------
+Partie Refacto 
+--------------
+
+"First, make it works, Second make it cleans"
+Refacto APRÈS que tout fonctionne correctement !
+
+Découper des parties de composants
+=> les créer en sorte de sous composants
+=> les rendre réutilisables
+
+Éviter donc de mettre certains states dans un composant reutilisable
+=> privilégier la création de Props comme des attributs HTML
+
+Marche à suivre :
+  1 - Retirer tout ce qui specifique d'un Composant
+  2 - Afin de le mettre en props dans l'instance de composant
+
+
+-----------------------------------------
+Partie Refacto : la bonne façon de penser
+-----------------------------------------
+
+Philosophie souhaitée
+=> Adopter le même comportement qu'une balise HTML avec des attributs/valeurs
+
+Penser en terme de "préfabriqué"
+=> seules quelques options (Props) peuvent être définies
+
+Exemple :  
+  => Le Composant Sunday recoit la Props chocolat ou fraise (depuis son instance de Composant)
+  => Tout le Sunday est deja prefabriqué dans son Composant, il attend juste son parfum
+
+Finalité :
+Une instance de Composant, c'est juste
+=> un Composant plus éloigné qui attend des paramètres pour fonctionner avec son système deja en place
+
+
+-----------------------------------------------
+2 visions différentes de transmissions de Props
+-----------------------------------------------
+
+A - L'instance de Composant envoit des Props 
+  => Puis, avec ces Props, le Composant fait ses calculs savants pour générer des valeurs définitives
+
+B - L'instance de Composant fait ses calculs savants, qui generent des valeurs définitives
+  => Puis, il les envoie sous forme de Props au Composant qui a juste à les "placer" dans son préfabriqué
+
+La méthode A demande encore des suites de fonctionnalités dans le Composant.
+La méthode B a déjà définie les fonctionnalités dans le Composant
+  => l'instance de Composant devient un peu comme une balise HTML avec des attributs
+
+
+Instance de Composant 
+  => Définir des Props 
+    => Les recevoir dans le Composant 
+      => et générer des valeurs
+        => spécifique
+
+Instance de Composant 
+  => Définir des Props avec des valeurs définitives
+    => Les recevoir dans le Composant
+      => puis les placer comme des valeurs normales dans du "préfabriquer"
+        => réutilisable
+
+-------------
+
+fichier react et dossiers 
+choisir sa spécificité : 
+par page ? par micro service ? par service ? par domaine ?
+
+
+---------------
+
+un Composant Styled ne peut avoir de class supplémentaire
+
+Penser raccourci, emmet
+=> df, jcc, 
+
+----------------
+
+object-fit
+object-position
+
+--------------------------------------------
+ESLint error : is missing in prop validation
+--------------------------------------------
+
+Either add this rule to your eslintrc file.
+{ "rules": { "react/prop-types": "off" } }
+
+OR
+
+You can add
+/* eslint-disable react/prop-types */
+to the top of the file in which you’d like to disable that rule.
+
+
+-------------------------------------------------
+restProps / otherProps / extraProps = Scalabilité
+-------------------------------------------------
+
+Permet de recevoir toutes les Props, non spécifiées, issus de l'instance de Composant
+=> Props non spécifié = Props non obligatoire
+=> C'est un objet contenant le reste des Props qui va se faire destructurer
+
+  export default function Input({ value, onChange, ...extraProps }) 
+
+Comment le placer
+  - Faire une simple interpolation JSX {...restProps} dans notre Composant
+    => cela affichera le reste, exactement comme dans l'instance de Composant
+
+Synthèse 
+  => Props définies spécifiquement = obligatoire au fonctionnement du Composant
+  => Props non définies spécifiquement (extraProps) = non obligatoire
+  => Le but recherché = la Scalabilité
+
+PS : 
+- Attention en typescript, car non "obligatoire" (et du coup on perd l'interet de TypeScript)
+- Ne pas confondre les Props + ses valeurs, avec les vrais attributs HTML (JSX) dans le Composant 
+
+TIPS : Dans l'instance de composant, Control + Espace 
+  => permet de voir les Props requis, et donc attendu pour faire fonctionner le Composant
+  => les extraProps ne sont donc même pas suggérées
+
+
+-------------------------------------------------
+-------------------------------------------------
+
+4 étapes de Naming :
+  - nom poubelle
+  - nom vague
+  - explicite et long
+  - explicite et court
+
+
+-------------------------------------------------
+
+------------------------------------
+Composant Réutilisable VS Spécifique
+------------------------------------
+
+C'est un mélange entre :
+
+  - Du Code changeant et personnalisable
+    => EN DEHORS du Composant
+
+  - et du Code qui ne change pas, non personnalisable
+    => DANS le Composant
+
+
+---------------------------------------------
+Reflexion : Le style, ou autre, est utilisé :
+---------------------------------------------
+
+A => à plusieurs endroits 
+    => concept de réusabilité 
+      => la majorité du Code est bloqué dans le Composant
+        =>  mettre le style libre et modifiable à l'extérieur du Composant
+              donc en Props dans l'instance, avec la liberté de style à coté
+
+B => à un seul endroit 
+    => concept de spécificité
+      => La majorité du code est souple, très personnalisable au cas par cas
+        => la création du code finale se fait directement dans le Composant
+          => la personnalisation se fait généralement dans le Composant
+
+
+Ajouter du style :
+  de manière spécifique sur un élément personnalisable
+    => C'est donc un élément changeant, donc modifiable via Props
+      => jamais dans le Composant
+        => toujours dans le Composant parent de notre Instance
+
+
+Peut etre :
+  Normalement, en mettant le Style à l'exterieur, et non dans le Composant,
+    => ça évite le doublon de style dans 2 composants par exemple
+
+
+-----------------------------
+Les limites de la reusabilité
+-----------------------------
+
+Pour chaque Composant réutilisable
+  => attention à le rendre un minimum spécifique
+    => donc suffisamment d'identité pour le rendre spécifique 
+      => afin de pouvoir se dire "ça va concerner que ce cas là"
+
+Pour éviter :
+=> les prises de tête des supers composants réutilisables bien trop complexes 
+  => et donc une grande difficulté de maintenabilité
+    => La sur-anticipation peut être "inutile" car inexistante
+    (attendre le cas d'usage, ne pas trop anticiper sinon galere pour la team)
+
+suffisament spécifique + generique = pas evident = besoin d'expérience
+
+------------------------------------
+Remplir un Composant avec de la Data
+=> Hydrater le Composant
+------------------------------------
+
+Quand on crée un Composant, on crée de la Documentation
+=> Travailler en équipe, c'est rendre la tache facile pour les autres
+
+interpolation JSX : string et boolean = pas obligatoire  

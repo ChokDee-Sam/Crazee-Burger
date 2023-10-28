@@ -19,8 +19,14 @@ command + Shift + P     => Accès aux options (palette de commandes)
 command + B             => Ouvre l'explorateur de fichiers
 command + shift + E     => Localise le fichier dans son dossier
 
-control + espace > Enter    => Import le composant automatiquement
+control + espace > Enter    => Import le Composant / Props
 command + shift + L         => selectionne toutes les occurences
+
+command + K => W            => Ferme toutes les fenêtres
+
+command + Shift + F         => Rechercher dans tout le projet
+command + F                 => Rechercher dans ma page
+
 
 Tip : Dans accès au fichier, un simple chevron > ouvre les options
 

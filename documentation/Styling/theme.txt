@@ -3,6 +3,8 @@ Pratique pour centraliser les informations entre les parties :
     - Dev
     - Commerciale
 
+-----------------------------------------
+
 Dans un fichier JS :
     1. créer des objects avec la data
       const colors = {
@@ -15,3 +17,19 @@ Dans un fichier JS :
 
     3. Récupérer la Data
         border : 1px solid ${theme.colors.primary}
+
+-----------------------------------------
+
+Calcul 
+    Possibilité de faire des calculs
+    => Si nombre
+        => rajouter px ou unité ensuite
+
+    margin-bottom: ${theme.gridUnit * 5}px;
+    
+-----------------------------------------
+
+Trouver la similitude 
+control + shift + F
+
+-----------------------------------------
