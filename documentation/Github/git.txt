@@ -13,6 +13,17 @@ Comment bien écrire un Commit
 exemple : 🔥F01: Delete App.test.js
 
 
+
+------------------
+Modifier un Commit
+------------------
+
+git commit --amend
+échap
+:x      (quit, unsave en même temps)
+
+
+
 ------------------
 Changer de branche
 ------------------

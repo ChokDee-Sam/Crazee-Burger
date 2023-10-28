@@ -1,9 +1,11 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import styled from "styled-components"
+import { BsPersonCircle } from "react-icons/bs"
 import { BiChevronRight } from "react-icons/bi"
-import { FaUserAlt } from "react-icons/fa"
 import { theme } from "../../../theme"
+import TextInput from "../../reusable-ui/TextInput"
+import PrimaryButton from "../../reusable-ui/PrimaryButton"
 
 export default function LoginForm() {
   // 1. State
@@ -23,173 +25,62 @@ export default function LoginForm() {
 
   // 3. Affichage
   return (
-    <FormStyled action="submit" onSubmit={handleSubmit}>
-      <div className="big-title">
-        <div>Crazy</div>
-        <img src="src/assets/F03 logo-orange.png"></img>
-        <div>Burger</div>
+    <LoginFormStyled action="submit" onSubmit={handleSubmit}>
+      <div>
+        <h1>Bienvenue chez nous !</h1>
+        <hr />
+        <h2>Connectez-vous</h2>
       </div>
 
-      <h1>Bienvenue chez nous !</h1>
-      <div className="line" />
+      <TextInput
+        value={inputValue}
+        onChange={handleChange}
+        placeholder="Entrez votre prénom"
+        required
+        Icon={<BsPersonCircle className="icon red" />}
+      />
 
-      <div className="bloc-connexion">
-        <h2>
-          Connectez-vous <FaUserAlt />
-        </h2>
-        <input
-          type="text"
-          placeholder="Entrez votre prénom"
-          value={inputValue}
-          onChange={handleChange}
-          required
-        />
-        <button>
-          Accéder à mon espace <BiChevronRight />
-        </button>
-      </div>
-    </FormStyled>
+      <PrimaryButton
+        label="Accéder à mon espace"
+        Icon={<BiChevronRight className="icon red" />}
+      />
+    </LoginFormStyled>
   )
 }
 
-const FormStyled = styled.form`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  /* width: 464px; */
+const LoginFormStyled = styled.form`
+  text-align: center;
+  max-width: 500px;
+  min-width: 400px;
+  /* margin: 0px auto; */
+  margin-top: 40px;
+  padding: 2.5rem ${theme.spacing.lg};
+  border-radius: ${theme.borderRadius.round};
+  font-family: Amatic SC;
 
-  color: white;
-
-  .big-title {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    gap: ${theme.spacing.md};
-
-    color: ${theme.colors.primary};
-    /* color: #ffa01b; */
-    font-family: Amatic SC;
-    font-style: normal;
-    font-size: 110px;
-    font-weight: ${theme.weights.bold};
-    text-align: center;
-    line-height: 115px; /* 104.545% */
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
-    img {
-      width: 200px;
-      height: 150px;
-      flex-shrink: 0;
-    }
+  hr {
+    border: 1.5px solid ${theme.colors.loginLine};
+    margin-bottom: ${theme.spacing.lg};
   }
 
   h1 {
-    margin-top: 40px;
-
-    color: #fff;
-    font-family: Amatic SC;
-    font-style: normal;
-    font-size: ${theme.fonts.P5};
-    font-weight: ${theme.weights.bold};
-    text-align: center;
-    line-height: 61px; /* 127.083% */
+    color: ${theme.colors.white};
+    font-size: ${theme.fonts.size.P5};
+    margin-bottom: ${theme.gridUnit * 5}px;
   }
 
-  .line {
-    margin-top: ${theme.spacing.lg};
-    /* margin-top: 32px; */
-
-    width: 400px;
-    height: 3px;
-    flex-shrink: 0;
-    border: 1px solid #f56a2c;
-    background-color: #f56a2c;
+  h2 {
+    color: ${theme.colors.white};
+    margin: 20px 10px 10px;
+    font-size: ${theme.fonts.size.P4};
+    margin-bottom: ${theme.spacing.lg};
   }
 
-  .bloc-connexion {
-    margin-top: 40px;
-
+  .icon {
     display: flex;
-    flex-direction: column;
-    gap: 18px;
-    width: 400px;
-
-    h2 {
-      color: #fff;
-      text-align: center;
-      font-family: Amatic SC;
-      font-size: ${theme.fonts.P4};
-      font-style: normal;
-      font-weight: ${theme.weights.bold};
-      line-height: 46px; /* 127.778% */
-    }
-
-    input {
-      display: inline-flex;
-      align-items: center;
-      gap: ${theme.spacing.sm};
-      /* gap: 12px; */
-
-      padding: 18px 24px;
-      border-radius: ${theme.borderRadius.round};
-      background: #fff;
-
-      color: #d3d3d3;
-      font-family: Arial;
-      font-size: ${theme.fonts.P0};
-      font-style: normal;
-      font-weight: ${theme.weights.regular};
-      line-height: 17px; /* 113.333% */
-
-      border: none;
-    }
-
-    input::before {
-      content: "test";
-      background-color: red;
-      width: 200px;
-      height: 100px;
-    }
-    input:focus {
-      outline: none;
-    }
-
-    button {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      flex-shrink: 0;
-      /* gap: 9.8px; */
-      /* height: 53px; */
-      padding: 18px;
-
-      border-radius: ${theme.borderRadius.round};
-      border: 1px solid ${theme.colors.primary_burger};
-      background: ${theme.colors.primary_burger};
-
-      color: #fff;
-      text-align: center;
-      font-family: Arial;
-      font-size: ${theme.fonts.P0};
-      font-style: normal;
-      font-weight: ${theme.weights.bold};
-      line-height: 15px; /* 100% */
-
-      transition: all 0.25s;
-    }
-    button:hover {
-      color: ${theme.colors.primary_burger};
-      background-color: #fff;
-      cursor: pointer;
-    }
-    button:active {
-      color: white;
-      background-color: ${theme.colors.primary_burger};
-      cursor: pointer;
-    }
+    justify-content: center;
+    align-items: center;
+    font-size: ${theme.fonts.size.P0};
+    margin-left: 10px;
   }
 `
