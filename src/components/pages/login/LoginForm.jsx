@@ -1,9 +1,10 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import styled from "styled-components"
+import { BsPersonCircle } from "react-icons/bs"
 import { BiChevronRight } from "react-icons/bi"
-import { FaUserAlt } from "react-icons/fa"
 import { theme } from "../../../theme"
+import Input from "./input"
 
 export default function LoginForm() {
   // 1. State
@@ -24,146 +25,97 @@ export default function LoginForm() {
   // 3. Affichage
   return (
     <FormStyled action="submit" onSubmit={handleSubmit}>
-      {/* <div className="big-title">
-        <div>Crazy</div>
-        <img src="src/assets/F03 logo-orange.png"></img>
-        <div>Burger</div>
-      </div> */}
-
-      <h1>Bienvenue chez nous !</h1>
-      <div className="line" />
-
-      <div className="bloc-connexion">
-        <h2>
-          Connectez-vous <FaUserAlt />
-        </h2>
-        <input
-          type="text"
-          placeholder="Entrez votre prénom"
-          value={inputValue}
-          onChange={handleChange}
-          required
-        />
-        <button>
-          Accéder à mon espace <BiChevronRight />
-        </button>
+      <div>
+        <h1>Bienvenue chez nous !</h1>
+        <hr />
+        <h2>Connectez-vous</h2>
       </div>
+
+      <Input
+        value={inputValue}
+        onChange={handleChange}
+        placeholder="Entrez votre prénom"
+        required
+        Icon={<BsPersonCircle className="icon" />}
+      />
+      <button className="button-with-icon">
+        <span>Accéder à mon espace</span>
+        <BiChevronRight />
+      </button>
     </FormStyled>
   )
 }
 
 const FormStyled = styled.form`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  /* width: 464px; */
+  /* background-color: green; */
+  margin-top: 50px;
+  text-align: center;
+  max-width: 500px;
+  min-width: 400px;
+  /* margin: 0px auto; */
+  padding: 2.5rem 2rem;
+  border-radius: 5px;
+  font-family: Amatic SC;
 
-  color: white;
+  hr {
+    border: 1.5px solid #f56a2c;
+    margin-bottom: 40px;
+  }
 
   h1 {
-    margin-top: 40px;
-
     color: #fff;
-    font-family: Amatic SC;
-    font-style: normal;
     font-size: ${theme.fonts.P5};
-    font-weight: ${theme.weights.bold};
-    text-align: center;
-    line-height: 61px; /* 127.083% */
+    margin-bottom: 40px;
   }
 
-  .line {
-    margin-top: ${theme.spacing.lg};
-    /* margin-top: 32px; */
-
-    width: 400px;
-    height: 3px;
-    flex-shrink: 0;
-    border: 1px solid #f56a2c;
-    background-color: #f56a2c;
+  h2 {
+    color: white;
+    margin: 20px 10px 10px;
+    font-size: 36px;
   }
 
-  .bloc-connexion {
-    margin-top: 40px;
+  .button-with-icon {
+    width: 100%;
+    padding: 18px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    white-space: nowrap;
+    text-decoration: none;
+    line-height: 1;
 
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-    width: 400px;
+    padding: 18px 24px;
+    border-radius: ${theme.borderRadius.round};
+    font-size: 15px;
+    font-weight: 800;
+    color: white;
+    background-color: #ff9f1b;
+    border: 1px solid #ff9f1b;
+    transition: all 0.25s;
 
-    h2 {
-      color: #fff;
-      text-align: center;
-      font-family: Amatic SC;
-      font-size: ${theme.fonts.P4};
-      font-style: normal;
-      font-weight: ${theme.weights.bold};
-      line-height: 46px; /* 127.778% */
+    &:hover:not(:disabled) {
+      background-color: white;
+      color: #ff9f1b;
+      border: 1px solid #ff9f1b;
+      transition: all 0.2s ease-out;
+    }
+    &:active {
+      color: white;
+      background-color: #ff9f1b;
+      border: 1px solid #ff9f1b;
+    }
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
     }
 
-    input {
-      display: inline-flex;
-      align-items: center;
-      gap: ${theme.spacing.sm};
-      /* gap: 12px; */
-
-      padding: 18px 24px;
-      border-radius: ${theme.borderRadius.round};
-      background: #fff;
-
-      color: #d3d3d3;
-      font-family: Arial;
-      font-size: ${theme.fonts.P0};
-      font-style: normal;
-      font-weight: ${theme.weights.regular};
-      line-height: 17px; /* 113.333% */
-
-      border: none;
-    }
-
-    input::before {
-      content: "test";
-      background-color: red;
-      width: 200px;
-      height: 100px;
-    }
-    input:focus {
-      outline: none;
-    }
-
-    button {
+    .icon {
       display: flex;
       justify-content: center;
-      align-items: flex-start;
-      flex-shrink: 0;
-      /* gap: 9.8px; */
-      /* height: 53px; */
-      padding: 18px;
-
-      border-radius: ${theme.borderRadius.round};
-      border: 1px solid ${theme.colors.primary_burger};
-      background: ${theme.colors.primary_burger};
-
-      color: #fff;
-      text-align: center;
-      font-family: Arial;
-      font-size: ${theme.fonts.P0};
-      font-style: normal;
-      font-weight: ${theme.weights.bold};
-      line-height: 15px; /* 100% */
-
-      transition: all 0.25s;
-    }
-    button:hover {
-      color: ${theme.colors.primary_burger};
-      background-color: #fff;
-      cursor: pointer;
-    }
-    button:active {
-      color: white;
-      background-color: ${theme.colors.primary_burger};
-      cursor: pointer;
+      align-items: center;
+      font-size: 15px;
+      margin-left: 10px;
     }
   }
 `
