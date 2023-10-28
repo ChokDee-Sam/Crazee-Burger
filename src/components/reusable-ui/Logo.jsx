@@ -19,19 +19,18 @@ const LogoStyled = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-
   justify-content: space-between;
 
   h1 {
+    display: inline;
     text-align: center;
-
-    text-transform: uppercase;
     color: ${theme.colors.primary};
-    font-family: Amatic SC;
-    font-style: normal;
-    font-weight: ${theme.weights.bold};
-    font-size: 36px;
+
+    font-size: ${theme.fonts.size.P4};
     line-height: 1em;
+    font-weight: ${theme.fonts.weights.bold};
+    text-transform: uppercase;
+    font-family: Amatic SC;
 
     letter-spacing: 1.5px;
     text-transform: uppercase;

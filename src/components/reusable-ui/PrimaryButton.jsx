@@ -24,21 +24,21 @@ const PrimaryButtonStyled = styled.button`
 
   padding: 18px 24px;
   border-radius: ${theme.borderRadius.round};
-  font-size: 15px;
-  font-weight: 800;
-  color: white;
+  font-size: ${theme.fonts.size.P0};
+  font-weight: ${theme.fonts.weights.heavy};
+  color: ${theme.colors.white};
   background-color: #ff9f1b;
   border: 1px solid #ff9f1b;
   transition: all 0.25s;
 
   &:hover:not(:disabled) {
-    background-color: white;
+    background-color: ${theme.colors.white};
     color: #ff9f1b;
     border: 1px solid #ff9f1b;
     transition: all 0.2s ease-out;
   }
   &:active {
-    color: white;
+    color: ${theme.colors.white};
     background-color: #ff9f1b;
     border: 1px solid #ff9f1b;
   }
