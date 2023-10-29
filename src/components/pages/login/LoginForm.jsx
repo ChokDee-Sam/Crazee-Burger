@@ -4,8 +4,8 @@ import styled from "styled-components"
 import { BsPersonCircle } from "react-icons/bs"
 import { BiChevronRight } from "react-icons/bi"
 import { theme } from "../../../theme"
-import TextInput from "../../reusable-ui/TextInput"
-import PrimaryButton from "../../reusable-ui/PrimaryButton"
+import TextInput from "../../reusableUi/TextInput"
+import PrimaryButton from "../../reusableUi/PrimaryButton"
 
 export default function LoginForm() {
   // 1. State
@@ -52,7 +52,7 @@ const LoginFormStyled = styled.form`
   text-align: center;
   max-width: 500px;
   min-width: 400px;
-  /* margin: 0px auto; */
+
   margin-top: 40px;
   padding: 2.5rem ${theme.spacing.lg};
   border-radius: ${theme.borderRadius.round};

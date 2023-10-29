@@ -1,11 +1,11 @@
-import Logo from "../../reusable-ui/Logo"
+import Logo from "../../reusableUi/Logo"
 import LoginForm from "./LoginForm"
 import styled from "styled-components"
 
 export default function LoginPage() {
   return (
     <LoginPageStyled>
-      <Logo />
+      <Logo className={"logo-login-page"} />
       <LoginForm />
     </LoginPageStyled>
   )
@@ -21,7 +21,7 @@ const LoginPageStyled = styled.div`
   height: 100vh;
 
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url("images/burger-and-fries-background.jpg");
+    url("/images/burger-and-fries-background.jpg");
   background-size: cover;
   background-position: center;
 
@@ -39,4 +39,8 @@ const LoginPageStyled = styled.div`
     bottom: 0;
     z-index: -1;
   } */
+
+  .logo-login-page {
+    transform: scale(2.5);
+  }
 `
