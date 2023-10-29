@@ -13,7 +13,7 @@ export default function Navbar({ username }) {
 }
 
 const NavbarStyled = styled.nav`
-  /* background: #474756; */
+  background: white;
   /* border: solid 10px white; */
   height: 10vh;
   min-height: 100px;
@@ -21,6 +21,6 @@ const NavbarStyled = styled.nav`
   display: flex;
   justify-content: space-between;
 
-  align-items: center;
+  /* align-items: center; */
   padding: 0px 20px;
 `
