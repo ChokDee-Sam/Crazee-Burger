@@ -4,8 +4,8 @@ import styled from "styled-components"
 import { BsPersonCircle } from "react-icons/bs"
 import { BiChevronRight } from "react-icons/bi"
 import { theme } from "../../../theme"
-import TextInput from "../../reusable-ui/TextInput"
-import PrimaryButton from "../../reusable-ui/PrimaryButton"
+import TextInput from "../../reusableUi/TextInput"
+import PrimaryButton from "../../reusableUi/PrimaryButton"
 
 export default function LoginForm() {
   // 1. State

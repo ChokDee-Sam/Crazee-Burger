@@ -14,5 +14,4 @@ export default function NavbarRightSide({ username }) {
 
 const NavbarRightSideStyled = styled.div`
   background: grey;
-  border: 1px dashed white;
 `
