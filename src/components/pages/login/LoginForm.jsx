@@ -52,7 +52,7 @@ const LoginFormStyled = styled.form`
   text-align: center;
   max-width: 500px;
   min-width: 400px;
-  /* margin: 0px auto; */
+
   margin-top: 40px;
   padding: 2.5rem ${theme.spacing.lg};
   border-radius: ${theme.borderRadius.round};
