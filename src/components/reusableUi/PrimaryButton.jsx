@@ -12,30 +12,34 @@ export default function PrimaryButton({ label, Icon }) {
 }
 
 const PrimaryButtonStyled = styled.button`
-  width: 100%;
-  padding: 18px;
   display: inline-flex;
   justify-content: center;
   align-items: center;
   position: relative;
+
+  width: 100%;
+  padding: 18px;
+
   white-space: nowrap;
   text-decoration: none;
   line-height: 1;
 
   padding: 18px 24px;
-  border-radius: ${theme.borderRadius.round};
+
+  color: ${theme.colors.white};
   font-size: ${theme.fonts.size.P0};
   font-weight: ${theme.fonts.weights.heavy};
-  color: ${theme.colors.white};
+
   background-color: #ff9f1b;
   border: 1px solid #ff9f1b;
-  transition: all 0.25s;
+  border-radius: ${theme.borderRadius.round};
+  transition: all 0.3s;
 
   &:hover:not(:disabled) {
     background-color: ${theme.colors.white};
     color: #ff9f1b;
     border: 1px solid #ff9f1b;
-    transition: all 0.2s ease-out;
+    transition: all 0.3s ease-out;
   }
   &:active {
     color: ${theme.colors.white};
@@ -45,5 +49,16 @@ const PrimaryButtonStyled = styled.button`
   &:disabled {
     opacity: 0.6;
     cursor: not-allowed;
+  }
+
+  :nth-child(2) {
+    color: white;
+    margin-left: 5px;
+    transition: all 0.3s;
+  }
+  &:hover :nth-child(2) {
+    color: #ff9f1b;
+    margin-left: 15px;
+    transition: all 0.3s;
   }
 `
