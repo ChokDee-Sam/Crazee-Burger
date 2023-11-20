@@ -12,28 +12,40 @@ export default function TextInput({ value, onChange, Icon, ...extraProps }) {
 }
 
 const TextInputStyled = styled.div`
-  background: white;
-  border-radius: ${theme.borderRadius.round};
   display: flex;
   align-items: center;
-  padding: 18px 24px;
+
+  /* padding: 18px 24px; */
+  padding: 0px 0px 0px 34px;
   margin: 18px 0;
 
-  .icon {
+  /* color: #acacac; */
+  color: ${theme.colors.greySemiDark};
+  background: white;
+  border-radius: ${theme.borderRadius.round};
+
+  :nth-child(1) {
     font-size: ${theme.fonts.size.P0};
     margin-right: ${theme.spacing.xs};
-    color: ${theme.colors.greySemiDark};
+    /* color: ${theme.colors.greySemiDark}; */
   }
 
   input {
-    border: none;
-    font-size: ${theme.fonts.size.P0};
-    color: ${theme.colors.dark};
     width: 100%;
+    padding: 16px 24px 16px 10px;
+
+    font-size: ${theme.fonts.size.P0};
+    /* color: ${theme.colors.greyMedium}; */
+    color: ${theme.colors.greySemiDark};
+
+    border: none;
+    outline: none;
+    border-radius: ${theme.borderRadius.round};
 
     &::placeholder {
-      background-color: ${theme.colors.white};
-      color: ${theme.colors.greyMedium};
+      color: ${theme.colors.greySemiDark};
+
+      /* background-color: ${theme.colors.white}; */
     }
   }
 `

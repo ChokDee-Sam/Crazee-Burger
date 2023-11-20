@@ -33,8 +33,13 @@ const OrderPageStyled = styled.div`
     display: flex;
     flex-direction: column;
 
-    height: 95vh;
-    width: 1440px;
+    height: 90vh;
+    /* height: 95vh; */
+    /* width: 1440px; */
+    min-width: 600px;
+    width: calc(100vw - 10vw);
+    max-width: 1400px;
+
     border-radius: ${theme.borderRadius.extraRound};
   }
 `
