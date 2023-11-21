@@ -16,3 +16,4 @@ const MainStyled = styled.div`
   border-bottom-left-radius: ${theme.borderRadius.extraRound};
   border-bottom-right-radius: ${theme.borderRadius.extraRound};
 `
+/* grid-template-columns: 50px 1fr 1fr 1fr 50px;  */

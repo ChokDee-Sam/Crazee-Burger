@@ -58,6 +58,7 @@ const borderRadius = {
   extraRound: "15px",
   circle: "50%",
 }
+
 const shadows = {}
 
 export const theme = {
@@ -68,6 +69,3 @@ export const theme = {
   shadows,
   spacing,
 }
-
-/* font-family: "Amatic SC", sans-serif; */
-/* font-family: "Open Sans", sans-serif; */
