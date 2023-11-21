@@ -13,18 +13,18 @@ export default function PrimaryButton({ label, Icon, className }) {
 
 const PrimaryButtonStyled = styled.button`
   display: flex;
-  /* display: inline-flex; */
+ */
   justify-content: center;
   align-items: center;
   /* position: relative; */
 
   width: 100%;
-  height: 100%;
   /* padding: 18px; */
 
   /* white-space: nowrap; */
   text-decoration: none;
   line-height: 1;
+  cursor: pointer;
 
   padding: 18px 24px;
 

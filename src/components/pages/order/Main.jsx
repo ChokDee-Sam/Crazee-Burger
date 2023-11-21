@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import { theme } from "../../../theme"
-import Boxes from "./Boxes"
+import Boxes from "./Cards"
 
 export default function Main() {
   return (
@@ -20,7 +20,7 @@ const MainStyled = styled.div`
   width: 100%;
   /* margin: 0 auto; */
 
-  /* height: calc(95vh-10vh); */
+  height: calc(95vh-10vh);
   /* background: #73b7e1; */
   padding: 50px 90px;
 
