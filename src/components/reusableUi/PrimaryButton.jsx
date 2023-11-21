@@ -13,7 +13,7 @@ export default function PrimaryButton({ label, Icon, className }) {
 
 const PrimaryButtonStyled = styled.button`
   display: flex;
- */
+  /* display: inline-flex; */
   justify-content: center;
   align-items: center;
   /* position: relative; */
