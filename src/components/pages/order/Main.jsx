@@ -22,6 +22,7 @@ const MainStyled = styled.div`
 
   /* height: calc(95vh-10vh); */
   /* background: #73b7e1; */
+  padding: 50px 90px;
 
   box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
 
