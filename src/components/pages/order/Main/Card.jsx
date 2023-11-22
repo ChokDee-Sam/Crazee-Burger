@@ -1,9 +1,9 @@
-import PrimaryButton from "../../reusableUi/PrimaryButton.jsx"
-import { fakeMenu2 } from "../../../fakeData/fakeMenu.js"
+import PrimaryButton from "../../../reusableUi/PrimaryButton.jsx"
+import { fakeMenu2 } from "../../../../fakeData/fakeMenu.js"
 import styled from "styled-components"
 
-export default function Card() {
-  return fakeMenu2.map((el, index) => (
+export default function Card({ menu }) {
+  return menu.map((el, index) => (
     <CardStyled key={index}>
       <div className="card-image">
         <img src={el.imageSource} alt={el.title} />

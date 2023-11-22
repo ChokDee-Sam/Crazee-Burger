@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { theme } from "../../../theme"
+import { theme } from "../../../../theme"
 import Menu from "./Menu"
 import Basket from "./Basket"
 
@@ -14,10 +14,12 @@ export default function Main() {
 
 const MainStyled = styled.div`
   display: grid;
-  grid-template-columns: 25% 75%;
-  flex: 1;
+  grid-template-columns: 1fr;
+  /* grid-template-columns: 0% 100%; */
+  /* grid-template-columns: 25% 75%; */
+  /* flex: 1; */
 
-  height: calc(95vh-10vh);
+  height: calc(95vh - 10vh);
   /* padding: 50px 90px; */
 
   border-bottom-left-radius: ${theme.borderRadius.extraRound};
