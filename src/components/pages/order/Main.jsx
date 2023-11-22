@@ -1,31 +1,28 @@
 import styled from "styled-components"
 import { theme } from "../../../theme"
-import Boxes from "./Cards"
+import Menu from "./Menu"
+import Basket from "./Basket"
 
 export default function Main() {
   return (
     <MainStyled className="main">
-      <Boxes />
+      <Basket />
+      <Menu />
     </MainStyled>
   )
 }
 
 const MainStyled = styled.div`
-  background-color: ${theme.colors.background_white};
+  display: grid;
+  grid-template-columns: 25% 75%;
   flex: 1;
-  /* display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%; */
-  width: 100%;
-  /* margin: 0 auto; */
 
   height: calc(95vh-10vh);
-  /* background: #73b7e1; */
-  padding: 50px 90px;
-
-  box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
+  /* padding: 50px 90px; */
 
   border-bottom-left-radius: ${theme.borderRadius.extraRound};
   border-bottom-right-radius: ${theme.borderRadius.extraRound};
+
+  box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
+  background-color: ${theme.colors.background_white};
 `
