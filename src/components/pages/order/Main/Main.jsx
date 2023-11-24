@@ -6,7 +6,7 @@ import Basket from "./Basket"
 export default function Main() {
   return (
     <MainStyled className="main">
-      <Basket />
+      {/* <Basket /> */}
       <Menu />
     </MainStyled>
   )

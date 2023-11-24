@@ -2,36 +2,36 @@ import PrimaryButton from "../../../reusableUi/PrimaryButton.jsx"
 import { fakeMenu2 } from "../../../../fakeData/fakeMenu.js"
 import styled from "styled-components"
 
-export default function Card({ menu }) {
+export default function Produit({ menu }) {
   return menu.map((el, index) => (
-    <CardStyled key={index}>
-      <div className="card-image">
+    <ProduitStyled key={index}>
+      <div className="produit-image">
         <img src={el.imageSource} alt={el.title} />
       </div>
 
-      <div className="card-infos">
+      <div className="produit-infos">
         <div className="title">{el.title}</div>
         <div className="CTA">
           <div className="price">{Math.round(el.price)} €</div>
           <PrimaryButton label={"Ajouter"} className={"size"} />
         </div>
       </div>
-    </CardStyled>
+    </ProduitStyled>
   ))
 
-  // <CardStyled>
+  // <ProduitStyled>
   //   <img src="/images/burger1.png" alt="burger1" />
-  //   <div className="card-infos">
+  //   <div className="produit-infos">
   //     <div className="title">Burger Smoke BBQ</div>
   //     <div className="CTA">
   //       <div className="price">5,60 €</div>
   //       <PrimaryButton label={"Ajouter"} className={"size"} />
   //     </div>
   //   </div>
-  // </CardStyled>
+  // </ProduitStyled>
 }
 
-const CardStyled = styled.div`
+const ProduitStyled = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -46,7 +46,7 @@ const CardStyled = styled.div`
   padding: 50px 20px 30px 20px;
   /* gap: 35px; */
 
-  .card-image {
+  .produit-image {
     /* width: 100%; */
     /* height: 145px; */
     display: flex;
@@ -63,7 +63,7 @@ const CardStyled = styled.div`
     }
   }
 
-  .card-infos {
+  .produit-infos {
     width: 100%;
 
     .title {

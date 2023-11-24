@@ -1,6 +1,6 @@
 import { useState } from "react"
 import styled from "styled-components"
-import Card from "./Card.jsx"
+import Produit from "./Produit.jsx"
 import { fakeMenu2 } from "../../../../fakeData/fakeMenu.js"
 import { theme } from "../../../../theme/index.js"
 
@@ -9,7 +9,7 @@ export default function Menu() {
 
   return (
     <MenuStyled>
-      <Card menu={menu} />
+      <Produit menu={menu} />
     </MenuStyled>
   )
 }
@@ -17,13 +17,15 @@ export default function Menu() {
 const MenuStyled = styled.div`
   /* background-color: #c489c4; */
   display: grid;
-  /* grid-template-columns: 1fr 1fr 1fr 1fr; */
-  /* grid-template-columns: repeat(auto-fit, minmax(180px, 10%)); */
   grid-template-columns: repeat(4, 1fr);
   grid-row-gap: 60px;
   padding: 50px 50px 150px;
   justify-items: center;
   /* place-items: center; */
+  /* box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset; */
+
+  /* grid-template-columns: 1fr 1fr 1fr 1fr; */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 10%));
 
   overflow-y: scroll;
   border-bottom-left-radius: ${theme.borderRadius.extraRound};
