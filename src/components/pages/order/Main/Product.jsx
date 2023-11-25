@@ -1,6 +1,6 @@
 import PrimaryButton from "../../../reusableUi/PrimaryButton.jsx"
-import { fakeMenu2 } from "../../../../fakeData/fakeMenu.js"
 import styled from "styled-components"
+import { formatPrice } from "../../../../utils/maths"
 
 export default function Product({ imageSource, title, price }) {
   return (
@@ -12,7 +12,7 @@ export default function Product({ imageSource, title, price }) {
       <div className="infos">
         <div className="title">{title}</div>
         <div className="description">
-          <div className="price">{Math.round(price)} €</div>
+          <div className="price">{formatPrice(price)}</div>
           <PrimaryButton label={"Ajouter"} className={"size"} />
         </div>
       </div>
@@ -21,41 +21,45 @@ export default function Product({ imageSource, title, price }) {
 }
 
 const ProductStyled = styled.div`
+  /* background-color: pink; */
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* align-items: center; */
 
-  /* background-color: #0004ff; */
-  border-radius: 15px;
-  background: #fff;
-  box-shadow: -8px 8px 20px 0px rgba(0, 0, 0, 0.2);
   width: 240px;
   height: 330px;
   padding: 50px 20px 30px 20px;
-  /* gap: 35px; */
+
+  /* background: #fff; */
+  border-radius: 15px;
+  box-shadow: -8px 8px 20px 0px rgba(0, 0, 0, 0.2);
 
   .image {
-    border: 2px solid blue;
+    background: #fff;
+
+    /* border: 2px solid blue; */
     height: 145px;
     width: 100%;
     display: flex;
     justify-content: center;
 
     img {
-      border: 2px dotted red;
-      max-width: 100%;
-      max-height: 145px;
+      /* border: 2px dotted red; */
+      width: 100%;
+      height: 100%;
       object-fit: contain;
     }
   }
 
   .infos {
     width: 100%;
-    border: 2px solid blue;
+    height: calc(220px - 145px);
+
+    /* border: 2px solid blue; */
 
     .title {
-      border: 1px solid fuchsia;
+      /* border: 1px solid fuchsia; */
 
       color: #17161a;
       font-family: Amatic SC;
@@ -63,9 +67,12 @@ const ProductStyled = styled.div`
       font-style: normal;
       font-weight: 700;
       line-height: normal;
-      text-align: center;
+      /* text-align: center; */
+      height: 100%;
 
       margin-bottom: 10px;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .description {
@@ -74,7 +81,6 @@ const ProductStyled = styled.div`
       display: flex;
       align-items: center;
       justify-content: space-between;
-      /* height: 30px; */
 
       .price {
         border: 1px solid fuchsia;

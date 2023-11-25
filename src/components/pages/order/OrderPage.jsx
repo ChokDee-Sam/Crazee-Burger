@@ -14,7 +14,7 @@ export default function OrderPage() {
   // Affichage
   return (
     <OrderPageStyled>
-      <div className="container">
+      <div className="container"> 
         <Navbar username={username} />
         <Main />
       </div>
