@@ -62,7 +62,7 @@ const ProductStyled = styled.div`
     transform: rotate(2deg) scale(1.15);
   }
   &:hover .rond {
-    background-color: #bb280b;
+    background-color: #cb0003;
     transform: scale(1) translate(30%, -30%);
     transition: transform 0.3s 0.15s;
     /* transition-delay: transform 2s; */
