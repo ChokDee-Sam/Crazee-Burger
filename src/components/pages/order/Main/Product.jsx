@@ -2,18 +2,30 @@ import PrimaryButton from "../../../reusableUi/PrimaryButton.jsx"
 import styled from "styled-components"
 import { formatPrice } from "../../../../utils/maths"
 
-export default function Product({ imageSource, title, price }) {
+export default function Product({
+  imageSource,
+  title,
+  price,
+  isAvailable,
+  discount,
+  discountPercent,
+}) {
   return (
     <ProductStyled>
       <div className="image">
         <img src={imageSource} alt={title} />
+        {discount && (
+          <div className="rond">
+            <h3>{discountPercent}%</h3>
+          </div>
+        )}
       </div>
 
       <div className="infos">
         <div className="title">{title}</div>
         <div className="description">
           <div className="price">{formatPrice(price)}</div>
-          <PrimaryButton label={"Ajouter"} className={"size"} />
+          <PrimaryButton label={"Ajouter"} className={"button-add"} />
         </div>
       </div>
     </ProductStyled>
@@ -21,8 +33,10 @@ export default function Product({ imageSource, title, price }) {
 }
 
 const ProductStyled = styled.div`
-  /* background-color: pink; */
-
+  background-color: #2e2e2e;
+  /* box-shadow: -8px 8px 20px 0px rgb(255, 255, 255); */
+  box-shadow: -8px 8px 20px 0px #000000;
+  /* border: 3px solid white; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -30,15 +44,31 @@ const ProductStyled = styled.div`
   width: 240px;
   height: 330px;
   padding: 50px 20px 30px 20px;
+  border: 4px solid #ff9f1b;
 
-  /* background: #fff; */
   border-radius: 15px;
-  box-shadow: -8px 8px 20px 0px rgba(0, 0, 0, 0.2);
+  /* box-shadow: -8px 8px 20px 0px rgba(0, 0, 0, 0.2); */
+  transition: all 0.3s ease;
+  position: relative;
+
+  &:hover {
+    /* box-shadow: 0px 0px 20px 10px #ff9f1b; */
+    box-shadow: -8px 8px 20px 0px #000000;
+
+    transition: all 0.2s ease;
+    box-shadow: -6px 4px 30px 0px #000000b5;
+    border: 6px solid white;
+
+    transform: rotate(2deg) scale(1.15);
+  }
+  &:hover .rond {
+    background-color: #cb0003;
+    transform: scale(1) translate(30%, -30%);
+    transition: transform 0.3s 0.15s;
+    /* transition-delay: transform 2s; */
+  }
 
   .image {
-    background: #fff;
-
-    /* border: 2px solid blue; */
     height: 145px;
     width: 100%;
     display: flex;
@@ -52,23 +82,39 @@ const ProductStyled = styled.div`
     }
   }
 
+  .rond {
+    background-color: #ff9f1b;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    /* transform: translate(30%, -30%); */
+    transform: scale(0) translate(30%, -30%);
+    transition: all 0.3s;
+    display: grid;
+    place-items: center;
+    border: 3px solid white;
+
+    h3 {
+      color: white;
+      text-align: center;
+      transform: translateY(-15%);
+    }
+  }
   .infos {
     width: 100%;
-    height: calc(220px - 145px);
-
-    /* border: 2px solid blue; */
 
     .title {
-      /* border: 1px solid fuchsia; */
-
-      color: #17161a;
+      /* color: #17161a; */
+      color: white;
       font-family: Amatic SC;
       font-size: 36px;
       font-style: normal;
       font-weight: 700;
       line-height: normal;
-      /* text-align: center; */
-      height: 100%;
+      text-align: center;
 
       margin-bottom: 10px;
       overflow: hidden;
@@ -76,15 +122,11 @@ const ProductStyled = styled.div`
     }
 
     .description {
-      border: 1px solid fuchsia;
-
       display: flex;
       align-items: center;
       justify-content: space-between;
 
       .price {
-        border: 1px solid fuchsia;
-
         color: #ffa01b;
         font-family: Open Sans;
         font-size: 16px;
@@ -96,10 +138,27 @@ const ProductStyled = styled.div`
           width: 50%;
         } */
 
-      .size {
+      .button-add {
         width: 50%;
         height: 40px;
         font-size: 12px;
+        color: #2e2e2e;
+        /* background-color: #bb280b; */
+        border: 2px solid #ffa01b;
+
+        /* background-color: #2e2e2e;
+        border: 2px solid #bb280b;
+        border: 2px solid #ffa01b;
+        color: white; */
+        &:hover {
+          background-color: #2e2e2e;
+          background-color: white;
+          /* border: 2px solid white; */
+          color: #2e2e2e;
+          border: 2px solid white;
+
+          /* color: #ffa01b; */
+        }
       }
     }
   }

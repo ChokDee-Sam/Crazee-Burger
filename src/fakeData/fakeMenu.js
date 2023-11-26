@@ -46,6 +46,8 @@ export const fakeMenu2 = [
     quantity: 0,
     isAvailable: true,
     isAdvertised: false,
+    discount: true,
+    discountPercent: -30,
   },
   {
     id: 4,

@@ -14,6 +14,8 @@ export default function Navbar({ username }) {
 }
 
 const NavbarStyled = styled.nav`
+  background: ${theme.colors.white};
+  background-color: #2e2e2e;
   display: flex;
   justify-content: space-between;
 
@@ -24,8 +26,7 @@ const NavbarStyled = styled.nav`
 
   border-top-left-radius: ${theme.borderRadius.extraRound};
   border-top-right-radius: ${theme.borderRadius.extraRound};
-  border-bottom: 1px solid ${theme.colors.greyLight};
-  background: ${theme.colors.white};
+  /* border-bottom: 1px solid ${theme.colors.greyLight}; */
 
   .logo-order-page {
     cursor: pointer;

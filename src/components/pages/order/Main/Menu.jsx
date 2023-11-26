@@ -15,6 +15,9 @@ export default function Menu() {
           imageSource={produit.imageSource}
           title={produit.title}
           price={produit.price}
+          isAvailable={produit.isAvailable}
+          discount={produit.discount}
+          discountPercent={produit.discountPercent}
         />
       ))}
     </MenuStyled>
@@ -22,14 +25,16 @@ export default function Menu() {
 }
 
 const MenuStyled = styled.div`
-  /* background-color: #c489c4; */
+  background-color: #e44638;
+  background-color: #ff9f1b;
+  /* background-color: #2e2e2e; */
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-row-gap: 60px;
   padding: 50px 50px 150px;
   justify-items: center;
   /* place-items: center; */
-  /* box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset; */
+  box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
 
   /* grid-template-columns: 1fr 1fr 1fr 1fr; */
   grid-template-columns: repeat(auto-fit, minmax(300px, 10%));

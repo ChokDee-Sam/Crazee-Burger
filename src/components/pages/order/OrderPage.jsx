@@ -14,7 +14,7 @@ export default function OrderPage() {
   // Affichage
   return (
     <OrderPageStyled>
-      <div className="container"> 
+      <div className="container">
         <Navbar username={username} />
         <Main />
       </div>
@@ -27,7 +27,6 @@ const OrderPageStyled = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
-  border-radius: ${theme.borderRadius.extraRound};
 
   /* padding: 5vh 0; */
   background-color: ${theme.colors.primary};
