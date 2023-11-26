@@ -7,6 +7,9 @@ export default function Product({ imageSource, title, price }) {
     <ProductStyled>
       <div className="image">
         <img src={imageSource} alt={title} />
+        <div className="rond">
+          <h3>LA DOUCEUR</h3>
+        </div>
       </div>
 
       <div className="infos">
@@ -21,8 +24,10 @@ export default function Product({ imageSource, title, price }) {
 }
 
 const ProductStyled = styled.div`
-  /* background-color: pink; */
-
+  background-color: #2e2e2e;
+  /* box-shadow: -8px 8px 20px 0px rgb(255, 255, 255); */
+  box-shadow: -8px 8px 20px 0px #000000;
+  /* border: 3px solid white; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -31,14 +36,28 @@ const ProductStyled = styled.div`
   height: 330px;
   padding: 50px 20px 30px 20px;
 
-  /* background: #fff; */
   border-radius: 15px;
-  box-shadow: -8px 8px 20px 0px rgba(0, 0, 0, 0.2);
+  /* box-shadow: -8px 8px 20px 0px rgba(0, 0, 0, 0.2); */
+  transition: all 0.3s ease;
+  position: relative;
+
+  &:hover {
+    /* box-shadow: 0px 0px 20px 10px #ff9f1b; */
+    box-shadow: -8px 8px 20px 0px #000000;
+
+    transition: all 0.2s ease;
+    box-shadow: -8px 8px 20px 0px #000000;
+
+    transform: rotate(2deg) scale(1.15);
+  }
+  &:hover .rond {
+    /* background-color: red; */
+    transform: scale(1) translate(30%, -30%);
+    transition: transform 0.3s 0.1s;
+    /* transition-delay: transform 2s; */
+  }
 
   .image {
-    background: #fff;
-
-    /* border: 2px solid blue; */
     height: 145px;
     width: 100%;
     display: flex;
@@ -52,23 +71,37 @@ const ProductStyled = styled.div`
     }
   }
 
+  .rond {
+    background-color: white;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    /* transform: translate(30%, -30%); */
+    transform: scale(0) translate(30%, -30%);
+    transition: all 0.3s;
+    display: grid;
+    place-items: center;
+
+    h3 {
+      text-align: center;
+      transform: translateY(-15%);
+    }
+  }
   .infos {
     width: 100%;
-    height: calc(220px - 145px);
-
-    /* border: 2px solid blue; */
 
     .title {
-      /* border: 1px solid fuchsia; */
-
-      color: #17161a;
+      /* color: #17161a; */
+      color: white;
       font-family: Amatic SC;
       font-size: 36px;
       font-style: normal;
       font-weight: 700;
       line-height: normal;
-      /* text-align: center; */
-      height: 100%;
+      text-align: center;
 
       margin-bottom: 10px;
       overflow: hidden;
@@ -76,15 +109,11 @@ const ProductStyled = styled.div`
     }
 
     .description {
-      border: 1px solid fuchsia;
-
       display: flex;
       align-items: center;
       justify-content: space-between;
 
       .price {
-        border: 1px solid fuchsia;
-
         color: #ffa01b;
         font-family: Open Sans;
         font-size: 16px;
