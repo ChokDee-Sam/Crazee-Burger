@@ -27,7 +27,6 @@ const OrderPageStyled = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
-  border-radius: ${theme.borderRadius.extraRound};
 
   /* padding: 5vh 0; */
   background-color: ${theme.colors.primary};
