@@ -35,7 +35,9 @@ const ProfileStyled = styled.div`
     /* margin-right: 10px; */
     p {
       margin: 0;
-      color: ${theme.colors.greyBlue};
+      /* color: ${theme.colors.greyBlue}; */
+      color: ${theme.colors.white};
+
       b {
         color: ${theme.colors.primary};
       }
@@ -49,11 +51,24 @@ const ProfileStyled = styled.div`
         }
         small {
           font-size: ${theme.fonts.size.XXS};
-          color: ${theme.colors.greyBlue};
+          color: ${theme.colors.white};
+          color: ${theme.colors.primary};
+          /* color: ${theme.colors.greyBlue}; */
+
           font-weight: ${theme.fonts.weights.medium};
           text-decoration: none;
           position: relative;
           bottom: 2px;
+          padding: 0 0px;
+          transition: all 0.3s;
+
+          &:hover {
+            background-color: ${theme.colors.primary};
+            color: #2e2e2e;
+            padding: 0 7px;
+            border-radius: 5px;
+            transition: all 0.3s;
+          }
         }
       }
     }
@@ -65,6 +80,7 @@ const ProfileStyled = styled.div`
     display: flex;
     height: 100%;
     font-size: ${theme.fonts.size.P4};
-    color: ${theme.colors.greyBlue};
+    /* color: ${theme.colors.greyBlue}; */
+    color: ${theme.colors.white};
   }
 `
