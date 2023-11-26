@@ -2,14 +2,23 @@ import PrimaryButton from "../../../reusableUi/PrimaryButton.jsx"
 import styled from "styled-components"
 import { formatPrice } from "../../../../utils/maths"
 
-export default function Product({ imageSource, title, price }) {
+export default function Product({
+  imageSource,
+  title,
+  price,
+  isAvailable,
+  discount,
+  discountPercent,
+}) {
   return (
     <ProductStyled>
       <div className="image">
         <img src={imageSource} alt={title} />
-        <div className="rond">
-          <h3>LA DOUCEUR</h3>
-        </div>
+        {discount && (
+          <div className="rond">
+            <h3>{discountPercent}%</h3>
+          </div>
+        )}
       </div>
 
       <div className="infos">
@@ -46,14 +55,14 @@ const ProductStyled = styled.div`
     box-shadow: -8px 8px 20px 0px #000000;
 
     transition: all 0.2s ease;
-    box-shadow: -8px 8px 20px 0px #000000;
+    box-shadow: -6px 4px 30px 0px #000000b5;
 
     transform: rotate(2deg) scale(1.15);
   }
   &:hover .rond {
-    /* background-color: red; */
+    background-color: #bb280b;
     transform: scale(1) translate(30%, -30%);
-    transition: transform 0.3s 0.1s;
+    transition: transform 0.3s 0.15s;
     /* transition-delay: transform 2s; */
   }
 
@@ -72,9 +81,9 @@ const ProductStyled = styled.div`
   }
 
   .rond {
-    background-color: white;
-    width: 100px;
-    height: 100px;
+    background-color: #ff9f1b;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     position: absolute;
     top: 0;
@@ -84,8 +93,10 @@ const ProductStyled = styled.div`
     transition: all 0.3s;
     display: grid;
     place-items: center;
+    border: 3px solid white;
 
     h3 {
+      color: white;
       text-align: center;
       transform: translateY(-15%);
     }

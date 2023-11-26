@@ -15,6 +15,9 @@ export default function Menu() {
           imageSource={produit.imageSource}
           title={produit.title}
           price={produit.price}
+          isAvailable={produit.isAvailable}
+          discount={produit.discount}
+          discountPercent={produit.discountPercent}
         />
       ))}
     </MenuStyled>
