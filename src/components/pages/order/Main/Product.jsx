@@ -25,7 +25,7 @@ export default function Product({
         <div className="title">{title}</div>
         <div className="description">
           <div className="price">{formatPrice(price)}</div>
-          <PrimaryButton label={"Ajouter"} className={"size"} />
+          <PrimaryButton label={"Ajouter"} className={"button-add"} />
         </div>
       </div>
     </ProductStyled>
@@ -44,6 +44,7 @@ const ProductStyled = styled.div`
   width: 240px;
   height: 330px;
   padding: 50px 20px 30px 20px;
+  border: 4px solid #ff9f1b;
 
   border-radius: 15px;
   /* box-shadow: -8px 8px 20px 0px rgba(0, 0, 0, 0.2); */
@@ -56,6 +57,7 @@ const ProductStyled = styled.div`
 
     transition: all 0.2s ease;
     box-shadow: -6px 4px 30px 0px #000000b5;
+    border: 6px solid white;
 
     transform: rotate(2deg) scale(1.15);
   }
@@ -136,10 +138,27 @@ const ProductStyled = styled.div`
           width: 50%;
         } */
 
-      .size {
+      .button-add {
         width: 50%;
         height: 40px;
         font-size: 12px;
+        color: #2e2e2e;
+        /* background-color: #bb280b; */
+        border: 2px solid #ffa01b;
+
+        /* background-color: #2e2e2e;
+        border: 2px solid #bb280b;
+        border: 2px solid #ffa01b;
+        color: white; */
+        &:hover {
+          background-color: #2e2e2e;
+          background-color: white;
+          /* border: 2px solid white; */
+          color: #2e2e2e;
+          border: 2px solid white;
+
+          /* color: #ffa01b; */
+        }
       }
     }
   }
